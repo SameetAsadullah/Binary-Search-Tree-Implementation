@@ -1,2 +1,15 @@
-# Binary-Search-Tree-Implementation
-My own templatized C++ implementation of Binary Search Tree and its different traversals using Microsoft Visual Studio
+<h1 align="center">Binary Search Tree Implementation</h1>
+
+### Description
+My own `Templatized C++ Implementation` of Binary Search Tree and its `Different Traversals` using `Microsoft Visual Studio`. The code is based on an example of `User Accounts Record Class` but you can modify it as per your requirement.
+
+### Functions
+- getRoot()
+- insert()
+- retrieve()
+- isEmpty()
+- getHeight()
+- remove()
+- inOrderDisplay()
+- preOrderDisplay()
+- postOrderDisplay()
