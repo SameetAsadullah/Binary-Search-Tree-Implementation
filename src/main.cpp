@@ -13,4 +13,5 @@ int main() {
 	t1.postOrderDisplay(t1.getRoot());
 	cout << endl << "========== In Order Display ===========" << endl << endl;
 	t1.inOrderDisplay(t1.getRoot());
+	cout << "Is Tree a Full Binary Tree: " << t1.FullBinaryTree(t1.getRoot()) << endl;
 }

@@ -202,6 +202,107 @@ public:
 		}
 	}
 
+	bool FullBinaryTree(Node<DT>* temp) {
+
+		if (!temp) {
+			return true;
+		}
+		if (!(temp->right) && !(temp->left)) {
+			return true;
+		}
+		else if (temp->right != NULL && temp->left != NULL) {
+			FullBinaryTree(temp->right);
+			FullBinaryTree(temp->left);
+		}
+		else {
+			return false;
+		}
+	}
+
+	bool PerfectBinaryTree(Node<DT>* temp) {
+
+		bool check = FullBinaryTree(temp);
+
+		if (temp == NULL) {
+			return 1;
+		}
+
+		int left = PerfectBinaryTree(temp->left);
+		int right = PerfectBinaryTree(temp->right);
+
+		if (check) {
+			if ((left == right)) {
+				return true;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+
+	int Count(Node<DT>* temp) {
+		if (!temp) {
+			return 0;
+		}
+
+		return 1 + Count(temp->left) + Count(temp->right);
+	}
+
+	bool CompleteBinaryTree(Node<DT>* temp, int curr = 0)
+	{
+
+		int total = Count(root);
+		if (!temp) {
+			return true;
+		}
+		if (total <= curr) {
+			return false;
+		}
+		CompleteBinaryTree(temp->right, ((2 * curr) + 2));
+		CompleteBinaryTree(temp->left, ((2 * curr) + 1));
+	}
+
+	bool BalancedBinaryTree(Node<DT>* temp) {
+
+		if (!temp) {
+			return 1;
+		}
+
+		int left = calculateHeight(temp->left);
+		int right = calculateHeight(temp->right);
+
+		if (abs(right - left) <= 1) {
+			if (BalancedBinaryTree(temp->left)) {
+				if (BalancedBinaryTree(temp->right)) {
+					return true;
+				}
+			}
+		}
+		else {
+			return false;
+		}
+	}
+
+	bool DegenerateTree(Node<DT>* temp) {
+
+		if (temp->left) {
+			if (temp->right) {
+				return false;
+			}
+			else {
+				DegenerateTree(temp->left);
+			}
+		}
+		else {
+			if (temp->right) {
+				DegenerateTree(temp->right);
+			}
+			else {
+				return true;
+			}
+		}
+	}
+
 	~BSTree() {
 		while (root != NULL) {
 			remove(root->data);
