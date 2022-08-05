@@ -147,6 +147,14 @@ class BSTree {
 
 	}
 
+	int Count(Node<DT>* temp) {
+		if (!temp) {
+			return 0;
+		}
+
+		return 1 + Count(temp->left) + Count(temp->right);
+	}
+
 public:
 	BSTree() : root(NULL) {
 	}
@@ -238,14 +246,6 @@ public:
 		else {
 			return false;
 		}
-	}
-
-	int Count(Node<DT>* temp) {
-		if (!temp) {
-			return 0;
-		}
-
-		return 1 + Count(temp->left) + Count(temp->right);
 	}
 
 	bool CompleteBinaryTree(Node<DT>* temp, int curr = 0)
